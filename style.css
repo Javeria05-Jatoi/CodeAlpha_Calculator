@@ -1,0 +1,161 @@
+/* ── Google Font ── */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap');
+
+/* ── Variables ── */
+:root {
+  --bg-page:        #1a1a2e;
+  --bg-calc:        #16213e;
+  --bg-display:     #0f3460;
+  --btn-num:        #1e2a45;
+  --btn-operator:   #e94560;
+  --btn-equals:     #e94560;
+  --btn-clear:      #e63946;
+  --btn-hover-num:  #2a3a5c;
+  --btn-hover-op:   #c73652;
+  --text-primary:   #eaeaea;
+  --text-result:    #ffffff;
+  --text-expr:      #a8b2d8;
+  --text-op:        #ffffff;
+  --shadow:         0 25px 60px rgba(0, 0, 0, 0.5);
+  --radius:         16px;
+}
+
+/* ── Reset ── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ── Page ── */
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-page);
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(233, 69, 96, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(15, 52, 96, 0.4) 0%, transparent 60%);
+  font-family: 'Outfit', sans-serif;
+}
+
+/* ── Calculator Card ── */
+.calculator {
+  background: var(--bg-calc);
+  border-radius: var(--radius);
+  padding: 24px;
+  width: 340px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ── Display ── */
+.display {
+  background: var(--bg-display);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  min-height: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.expression {
+  font-size: 14px;
+  color: var(--text-expr);
+  font-weight: 300;
+  min-height: 20px;
+  word-break: break-all;
+  text-align: right;
+}
+
+.result {
+  font-size: 38px;
+  font-weight: 600;
+  color: var(--text-result);
+  word-break: break-all;
+  text-align: right;
+  line-height: 1.1;
+}
+
+/* ── Button Grid ── */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+/* ── Base Button ── */
+.btn {
+  background: var(--btn-num);
+  color: var(--text-primary);
+  border: none;
+  border-radius: 12px;
+  padding: 18px 10px;
+  font-size: 18px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.btn:hover {
+  background: var(--btn-hover-num);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+.btn:active {
+  transform: scale(0.95);
+  box-shadow: none;
+}
+
+/* ── Operator Buttons ── */
+.btn.operator {
+  background: rgba(233, 69, 96, 0.15);
+  color: #e94560;
+  border: 1px solid rgba(233, 69, 96, 0.25);
+}
+
+.btn.operator:hover {
+  background: rgba(233, 69, 96, 0.28);
+}
+
+/* ── Clear Button ── */
+.btn.clear {
+  background: rgba(230, 57, 70, 0.12);
+  color: #e63946;
+  border: 1px solid rgba(230, 57, 70, 0.2);
+}
+
+.btn.clear:hover {
+  background: rgba(230, 57, 70, 0.25);
+}
+
+/* ── Equals Button ── */
+.btn.equals {
+  background: linear-gradient(135deg, #e94560, #c73652);
+  color: #ffffff;
+  font-size: 22px;
+  border: none;
+  box-shadow: 0 4px 20px rgba(233, 69, 96, 0.4);
+}
+
+.btn.equals:hover {
+  background: linear-gradient(135deg, #ff5573, #e94560);
+  box-shadow: 0 6px 24px rgba(233, 69, 96, 0.55);
+  transform: translateY(-2px);
+}
+
+/* ── Span Two Columns ── */
+.span-two {
+  grid-column: span 2;
+}
